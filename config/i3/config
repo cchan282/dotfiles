@@ -59,6 +59,10 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
+# Brightness controls using ddcutil for external monitor
+bindsym Mod4+Prior exec --no-startup-id ddcutil setvcp 10 + 10
+bindsym Mod4+Next exec --no-startup-id ddcutil setvcp 10 - 10
+
 # Screenshot bindings
 # Print key for full screenshot
 bindsym Print exec --no-startup-id maim ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png
@@ -256,7 +260,7 @@ bar {
         status_command i3blocks
         position bottom
         height 40
-        font pango:FiraCode Nerd Font Mono, Font Awesome 6 Free 14
+        font pango:FiraCode Nerd Font Mono, Font Awesome 6 Free 16
         
         colors {
                 background $inactive-bg-color
