@@ -1,0 +1,73 @@
+# i3blocks configuration file
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[volume]
+label=VOL 
+command=/home/calvin/.config/i3blocks/scripts/volume
+interval=once
+signal=10
+color=#b48ead
+
+[memory]
+label=RAM 
+command=/home/calvin/.config/i3blocks/scripts/memory
+separator=false
+interval=30
+color=#88c0d0
+
+[disk]
+label=DISK 
+command=/home/calvin/.config/i3blocks/scripts/disk
+interval=30
+color=#a3be8c
+
+[cpu_usage]
+label=CPU 
+command=/home/calvin/.config/i3blocks/scripts/cpu_usage
+interval=10
+min_width=CPU 100.00%
+color=#81a1c1
+
+[load_average]
+label=LOAD 
+interval=10
+color=#d08770
+
+[battery]
+label=BAT 
+interval=30
+color=#ebcb8b
+
+[date]
+label=
+command=date '+%A %-m/%-d/%y'
+interval=60
+color=#8fbcbb
+separator=false
+
+[time]
+label=
+command=date '+%-I:%M%p'
+interval=5
+color=#8fbcbb

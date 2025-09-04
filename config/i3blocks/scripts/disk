@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get disk usage info in human readable format
+disk_info=$(df -h / | tail -1)
+used=$(echo "$disk_info" | awk '{print $3}')
+total=$(echo "$disk_info" | awk '{print $2}')
+
+# Convert Gi to GB and Mi to MB to match RAM format
+used=$(echo "$used" | sed 's/Gi/GB/g; s/Mi/MB/g')
+total=$(echo "$total" | sed 's/Gi/GB/g; s/Mi/MB/g')
+
+echo "${used}/${total}"

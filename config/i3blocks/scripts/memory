@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Get memory information
+mem_info=$(free -h | awk '/^Mem:/ {print $3"/"$2}')
+
+# Convert Gi to GB and Mi to MB
+mem_info=$(echo "$mem_info" | sed 's/Gi/GB/g; s/Mi/MB/g')
+
+echo "$mem_info"

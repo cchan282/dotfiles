@@ -1,0 +1,19 @@
+/* Custom text selection colors - quiet light gray theme */
+selection {
+    background-color: #e8e8e8;
+    color: #333333;
+}
+
+/* Apply to text selections in various contexts */
+*:selected,
+*::selection {
+    background-color: #e8e8e8;
+    color: #333333;
+}
+
+/* Ensure it works in text views and entries */
+textview text selection,
+entry selection {
+    background-color: #e8e8e8;
+    color: #333333;
+}
