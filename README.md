@@ -1,22 +1,22 @@
-# Calvin's Linux Dotfiles
+# calvin's linux dotfiles
 
-This repository contains my personal Linux configuration files for Ubuntu with i3 window manager.
+this repository contains my personal linux configuration files for ubuntu with i3 window manager.
 
-## Contents
+## contents
 
-### Window Manager & Desktop
-- **i3**: Window manager configuration with custom keybindings
-- **i3blocks**: Status bar configuration with custom scripts
-- **GTK**: Custom theme modifications (quiet text selection colors)
+### window manager & desktop
+- **i3**: window manager configuration with custom keybindings
+- **i3blocks**: status bar configuration with custom scripts
+- **gtk**: custom theme modifications (quiet text selection colors)
 
-### Shell & Terminal
-- **bash**: Shell configuration and aliases
-- **profile**: Environment variables and PATH configuration
+### shell & terminal
+- **bash**: shell configuration and aliases
+- **profile**: environment variables and path configuration
 
-### Development
-- **git**: Git configuration with user settings
+### development
+- **git**: git configuration with user settings
 
-## File Structure
+## file structure
 
 ```
 dotfiles/
@@ -25,27 +25,27 @@ dotfiles/
 │   │   └── config         # i3 window manager config
 │   ├── i3blocks/
 │   │   ├── config         # i3blocks status bar config
-│   │   └── scripts/       # Custom i3blocks scripts
+│   │   └── scripts/       # custom i3blocks scripts
 │   ├── gtk-3.0/
-│   │   └── gtk.css        # GTK3 custom styling
+│   │   └── gtk.css        # gtk3 custom styling
 │   └── gtk-4.0/
-│       └── gtk.css        # GTK4 custom styling
+│       └── gtk.css        # gtk4 custom styling
 ├── home/                   # ~/ files
-│   ├── .bashrc            # Bash configuration
-│   ├── .profile           # Shell profile
-│   └── .gitconfig         # Git configuration
-└── scripts/                # Utility scripts
+│   ├── .bashrc            # bash configuration
+│   ├── .profile           # shell profile
+│   └── .gitconfig         # git configuration
+└── scripts/                # utility scripts
 ```
 
-## Installation
+## installation
 
-### Method 1: Manual Symbolic Links
+### method 1: manual symbolic links
 
 ```bash
-# Clone the repository
+# clone the repository
 git clone https://github.com/cchan282/dotfiles.git ~/dotfiles
 
-# Create symbolic links
+# create symbolic links
 ln -sf ~/dotfiles/config/i3/config ~/.config/i3/config
 ln -sf ~/dotfiles/config/i3blocks/config ~/.config/i3blocks/config
 ln -sf ~/dotfiles/config/i3blocks/scripts ~/.config/i3blocks/scripts
@@ -56,42 +56,42 @@ ln -sf ~/dotfiles/home/.profile ~/.profile
 ln -sf ~/dotfiles/home/.gitconfig ~/.gitconfig
 ```
 
-### Method 2: Install Script (Coming Soon)
+### method 2: install script (coming soon)
 
-An automated install script will be added to make setup even easier.
+an automated install script will be added to make setup even easier.
 
-## Features
+## features
 
-### i3 Configuration
-- Custom keybindings optimized for productivity
-- Multi-monitor support
-- Application shortcuts and window management
+### i3 configuration
+- custom keybindings optimized for productivity
+- multi-monitor support
+- application shortcuts and window management
 
-### i3blocks Status Bar
-- CPU usage monitoring
-- Memory usage display
-- Disk space information
-- Audio controls and switching
-- Volume display
+### i3blocks status bar
+- cpu usage monitoring
+- memory usage display
+- disk space information
+- audio controls and switching
+- volume display
 
-### Custom GTK Styling
-- Quiet text selection colors (light gray instead of bright orange)
-- Consistent across GTK3 and GTK4 applications
+### custom gtk styling
+- quiet text selection colors (light gray instead of bright orange)
+- consistent across gtk3 and gtk4 applications
 
-## Requirements
+## requirements
 
-- Ubuntu (tested on latest LTS)
+- ubuntu (tested on latest lts)
 - i3 window manager
 - i3blocks for status bar
-- Standard GNU/Linux utilities
+- standard gnu/linux utilities
 
-## Customization
+## customization
 
-Feel free to fork this repository and customize the configurations to your liking. The files are well-commented to help you understand what each setting does.
+feel free to fork this repository and customize the configurations to your liking. the files are well-commented to help you understand what each setting does.
 
-## Backup
+## backup
 
-Before installing, it's recommended to backup your existing configuration files:
+before installing, it's recommended to backup your existing configuration files:
 
 ```bash
 mkdir ~/config-backup
@@ -102,10 +102,6 @@ cp ~/.profile ~/config-backup/
 cp ~/.gitconfig ~/config-backup/
 ```
 
-## Contributing
+## contributing
 
-If you find improvements or have suggestions, feel free to open an issue or submit a pull request!
-
-## License
-
-This project is licensed under the MIT License - feel free to use and modify as needed.
+if you find improvements or have suggestions, feel free to open an issue or submit a pull request!
