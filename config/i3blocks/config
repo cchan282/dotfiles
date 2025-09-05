@@ -25,7 +25,7 @@ markup=none
 [volume]
 label=VOL 
 command=/home/calvin/.config/i3blocks/scripts/volume
-interval=once
+interval=5
 signal=10
 color=#b48ead
 

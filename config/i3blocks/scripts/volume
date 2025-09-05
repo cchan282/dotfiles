@@ -2,19 +2,37 @@
 
 # Handle mouse clicks
 case $BLOCK_BUTTON in
-    1) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;; # left click, toggle mute
-    3) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;; # right click, toggle mute  
-    4) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ ;; # scroll up, increase
-    5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;; # scroll down, decrease
+    1) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -RTMIN+10 i3blocks ;; # left click, toggle mute
+    3) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -RTMIN+10 i3blocks ;; # right click, toggle mute  
+    4) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -RTMIN+10 i3blocks ;; # scroll up, increase
+    5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -RTMIN+10 i3blocks ;; # scroll down, decrease
 esac
 
+# Wait for PipeWire to be available (with timeout)
+for i in {1..10}; do
+    if wpctl status &>/dev/null; then
+        break
+    fi
+    sleep 0.1
+done
+
 # Get current volume and mute status
-volume_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+volume_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+
+# Check if we got valid output
+if [[ -z "$volume_info" ]] || [[ "$volume_info" == *"No such object"* ]]; then
+    echo "N/A"
+    exit 0
+fi
 
 if echo "$volume_info" | grep -q "MUTED"; then
     echo "MUTE"
 else
     # Extract volume percentage and format it
     volume=$(echo "$volume_info" | cut -d' ' -f2 | awk '{printf "%.0f%%", $1*100}')
-    echo "$volume"
+    if [[ -n "$volume" ]] && [[ "$volume" != "0%" ]] || [[ "$volume_info" == *" 0.00" ]]; then
+        echo "$volume"
+    else
+        echo "0%"
+    fi
 fi
